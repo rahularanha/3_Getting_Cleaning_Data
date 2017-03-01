@@ -1,0 +1,23 @@
+
+Q1
+Apply strsplit() to split all the names of the data frame on the characters "wgtp". 
+What is the value of the 123 element of the resulting list?
+
+A1
+q1 <- read.csv("Quiz4Q1.csv")
+strsplit(names(q1), "wgtp") [123]
+
+Q5
+How many values were collected in 2012? How many values were collected on Mondays in 2012?
+
+A5
+install.packages("quantmod")
+
+library(quantmod)
+amzn = getSymbols("AMZN",auto.assign=FALSE)
+sampleTimes = index(amzn)
+
+library(lubridate)
+
+sum(year(sampleTimes) == "2012")
+sum(wday(sampleTimes) == "2" & year(sampleTimes) == "2012")
