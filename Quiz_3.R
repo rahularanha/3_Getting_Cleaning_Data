@@ -63,7 +63,7 @@ q3b <- read.csv("Quiz3Q3b.csv", stringsAsFactors = F)
 
 q3a <- q3a[, c(1, 2, 4, 5)]                                                   ##extracting required cols
 colnames(q3a) <- c("CountryCode", "Rank", "Country.Name", "GDP.Value")
-gdpData$GDP.Value <- as.numeric(gsub(",", "", gdpData$GDP.Value))             ##converting GDP values into numeric
+q3a$GDP.Value <- as.numeric(gsub(",", "", q3a$GDP.Value))             ##converting GDP values into numeric
 
 matchedData <- merge(gdpData, eduData, by.x = "CountryCode", by.y = "CountryCode")
 dim(matchedData)[1]                                                           ## Number of matched countries
