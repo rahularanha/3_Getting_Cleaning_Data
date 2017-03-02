@@ -25,7 +25,7 @@ In the data set from Question 2 what is a regular expression that would allow yo
 Assume that the variable with the country names in it is named countryNames. How many countries begin with United?
 
 A3
-grep("^United",q2$Country.Name)
+length(grep("^United",q2$Country.Name))
 
 
 Q4
@@ -33,7 +33,10 @@ Match the data based on the country shortcode.
 Of the countries for which the end of the fiscal year is available, how many end in June?
 
 A4
-
+q4 <- read.csv("Quiz4Q4.csv", stringsAsFactors = F)
+md <- merge(q2, q4, by.x = "CountryCode", by.y = "CountryCode")
+  
+length(grep("Fiscal year end: June 30", md$Special.Notes))
 
 
 Q5
