@@ -65,7 +65,7 @@ q3a <- q3a[, c(1, 2, 4, 5)]                                                   ##
 colnames(q3a) <- c("CountryCode", "Rank", "Country.Name", "GDP.Value")
 q3a$GDP.Value <- as.numeric(gsub(",", "", q3a$GDP.Value))             ##converting GDP values into numeric
 
-matchedData <- merge(gdpData, eduData, by.x = "CountryCode", by.y = "CountryCode")
+matchedData <- merge(q3a, q3b, by.x = "CountryCode", by.y = "CountryCode")
 dim(matchedData)[1]                                                           ## Number of matched countries
 
 sorted <- arrange(matchedData, GDP.Value)
